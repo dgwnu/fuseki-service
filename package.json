@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/dgwnu/fuseki-service/issues"
   },
-  "homepage": "https://github.com/dgwnu/fuseki-service#readme"
+  "homepage": "https://github.com/dgwnu/fuseki-service#readme",
+  "dependencies": {
+    "download-cli": "^1.1.1"
+  }
 }
