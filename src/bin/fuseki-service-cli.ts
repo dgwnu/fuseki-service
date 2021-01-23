@@ -8,8 +8,6 @@
  * Node Package Modules
  */
 import { argv } from 'process';
-import { inspect } from 'util';
-import { Observable, throwError } from 'rxjs';
 
 /**
  * CLI Library Modules
@@ -34,18 +32,22 @@ if (argv[4]) {
 
 console.log(`DGWNU - Fuseki Service - ${command} ${parms}`);
 
+let output = '';
+
 switch (command) {
 
     case 'run': {
-
+        output = runServer();
         break;
     }
 
     default: {
-
+        output = runServer();
         break;
     }
 }
+
+console.log(output);
 //
 // END CLI Script
 //
