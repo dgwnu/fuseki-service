@@ -9,7 +9,7 @@ npm install https://github.com/dgwnu/fuseki-service.git --save
 
 ## How to start the Fuseki Service
 
-After install the Jena Fuseki Executables and Script are downloaded and extracted to the __fuseki-server__ directory/folder.  
+After install the Jena Fuseki Executables and Script are downloaded and extracted to a __fuseki-server/__ directory/folder within the current path.  
   
 From there you can start the serices like for example:
 
