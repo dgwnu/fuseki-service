@@ -1,5 +1,5 @@
 {
-  "name": "fuseki-service",
+  "name": "@dgwnu/fuseki-service",
   "version": "0.0.1",
   "description": "Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes",
   "scripts": {
