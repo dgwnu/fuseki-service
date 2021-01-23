@@ -7,6 +7,7 @@
     "build": "npm run build:lib && npm run build:cli",
     "build:cli": "tsc -p ts-cli-config.json",
     "build:lib": "rollup -c",
+    "cli": "$npm_package_cli",
     "cli:run": "$npm_package_cli run"
   },
   "repository": {
