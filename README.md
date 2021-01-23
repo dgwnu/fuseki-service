@@ -6,11 +6,13 @@ Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes
 ````
 npm install https://github.com/dgwnu/fuseki-service.git --save
 ````
+_Post install the Jena Fuseki (3.17.0) executable will be downloaded and extracted that will be used to run te service._
 
-## How to start the Fuseki Service
+## Run the Fuseki Service
 
-After install the Jena Fuseki Executables and Script are downloaded and extracted to a __fuseki-server/__ directory/folder within the current path.  
-  
-From there you can start the serices like for example:
+You can start the serice like this:
 
-- __java -jar fuseki-server/fuseki-server.jar --localhost --ping --stats --metrics --mem dgwnu.__ (running server on localhost with ping, stats and metrics on, and a memory dataset named "dgwnu")
+````
+npx fuseki-service-cli run
+````
+This will run a Fuseki Server server with default cli settings: _localhost with ping, stats and metrics on, and a memory dataset named "dgwnu"_
