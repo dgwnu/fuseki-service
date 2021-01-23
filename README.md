@@ -1,7 +1,13 @@
 # fuseki-service
 Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes
 
-## Install
+## NPM Install
+
+````
+npm install https://github.com/dgwnu/fuseki-service.git --save
+````
+
+## How to start the Fuseki Service
 
 After install the Jena Fuseki Executables and Script are downloaded and extracted to the __fuseki-server__ directory/folder.  
   
