@@ -8,14 +8,18 @@ exports.runServer = void 0;
  * Node System Imports
  */
 const child_process_1 = require("child_process");
+const path_1 = require("path");
 /**
  * NPM Package Imports
  */
-const runServerCommand = '../fuseki-server/fuseki-server';
+const serverFolder = 'fuseki-server';
+const serverScript = 'fuseki-server';
 function runServer(serverDefaults) {
+    const runServerCommand = path_1.resolve(__dirname, '..', '..', serverFolder, serverScript);
     if (!serverDefaults) {
         serverDefaults = '--localhost --mem /dgwnu';
     }
-    return child_process_1.execSync(runServerCommand + ' ' + serverDefaults).toString();
+    console.log('runServerCommand: ', runServerCommand);
+    return child_process_1.execSync(`${runServerCommand} ${serverDefaults}`).toString();
 }
 exports.runServer = runServer;

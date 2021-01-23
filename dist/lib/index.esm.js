@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import { resolve } from 'path';
 
 /**
  * Generic DGWNU Paackte TypeScript Tripple Store Utilities
@@ -6,12 +7,15 @@ import { execSync } from 'child_process';
 /**
  * NPM Package Imports
  */
-var runServerCommand = '../fuseki-server/fuseki-server';
+var serverFolder = 'fuseki-server';
+var serverScript = 'fuseki-server';
 function runServer(serverDefaults) {
+    var runServerCommand = resolve(__dirname, '..', '..', serverFolder, serverScript);
     if (!serverDefaults) {
         serverDefaults = '--localhost --mem /dgwnu';
     }
-    return execSync(runServerCommand + ' ' + serverDefaults).toString();
+    console.log('runServerCommand: ', runServerCommand);
+    return execSync(runServerCommand + " " + serverDefaults).toString();
 }
 
 export { runServer };
