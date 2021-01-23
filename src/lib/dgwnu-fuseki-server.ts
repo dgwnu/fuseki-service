@@ -16,8 +16,8 @@ const runServerCommand = '../fuseki-server/fuseki-server';
 export function runServer(serverDefaults?: string) {
 
     if (!serverDefaults) {
-        serverDefaults = '--localhost --mem dgwnu';
+        serverDefaults = '--localhost --mem /dgwnu';
     }
 
-    return execSync(runServerCommand + serverDefaults).toString();
+    return execSync(runServerCommand + ' ' + serverDefaults).toString();
 }
