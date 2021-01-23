@@ -15,14 +15,20 @@ import { resolve } from 'path';
 const serverFolder = 'fuseki-server'; 
 const serverScript = 'fuseki-server'; 
 
+/**
+ * Run Jena Fuseki Server until terminal session is closed
+ * @param serverDefaults Server Parameters replacement for Defaults (--localhost --mem /dgwnu)
+ */
 export function runServer(serverDefaults?: string) {
+    return execSync(serverExec(serverDefaults)).toString()
+}
+
+function serverExec(serverDefaults?: string) {
     const runServerCommand = resolve(__dirname, '..', '..', serverFolder, serverScript);
 
     if (!serverDefaults) {
         serverDefaults = '--localhost --mem /dgwnu';
     }
 
-    console.log('runServerCommand: ', runServerCommand);
-
-    return execSync(`${runServerCommand} ${serverDefaults}`).toString();
+    return `${runServerCommand} ${serverDefaults}`;
 }
