@@ -2,9 +2,9 @@
   "name": "fuseki-service",
   "version": "0.0.1",
   "description": "Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "download https://downloads.apache.org/jena/binaries/apache-jena-fuseki-3.17.0.zip -e -s 1 -o fuseki-server/",
+    "test": "java -jar fuseki-server/fuseki-server.jar --help"
   },
   "repository": {
     "type": "git",
