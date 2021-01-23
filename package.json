@@ -2,6 +2,11 @@
   "name": "@dgwnu/fuseki-service",
   "version": "0.0.1",
   "description": "Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes",
+  "main": "dist/lib/index.js",
+  "module": "dist/lib/index.esm.js",
+  "bin": {
+    "fuseki-service-cli": "dist/bin/fuseki-service-cli.js"
+  },
   "scripts": {
     "postinstall": "download https://downloads.apache.org/jena/binaries/apache-jena-fuseki-3.17.0.zip -e -s 1 -o fuseki-server/",
     "test": "java -jar fuseki-server/fuseki-server.jar --help"
