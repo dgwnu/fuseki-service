@@ -15,4 +15,5 @@ You can start the serice like this:
 ````
 npx fuseki-service-cli run
 ````
-This will run a Fuseki Server server with default cli settings: _localhost with ping, stats and metrics on, and a memory dataset named "dgwnu"_
+This will run a Fuseki Server server with default cli settings: _localhost with ping, stats and metrics on, and a memory dataset named "dgwnu"_.
+
