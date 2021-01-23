@@ -1,0 +1,24 @@
+{
+  "name": "fuseki-service",
+  "version": "0.0.1",
+  "description": "Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgwnu/fuseki-service.git"
+  },
+  "keywords": [
+    "fuseki",
+    "service",
+    "sparql"
+  ],
+  "author": "Onno Haldar <onno@haldar.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dgwnu/fuseki-service/issues"
+  },
+  "homepage": "https://github.com/dgwnu/fuseki-service#readme"
+}
