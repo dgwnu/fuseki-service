@@ -34,3 +34,15 @@ or in a NPM-script:
   
 In this pre-release the Jena Fuseki Server server will execute with default cli settings: _localhost with ping, stats and metrics on, and a memory dataset named "dgwnu"_.  
 Next releases will support all basic settings that are available from basic Open Source versions.
+
+## TypeScript Library Support
+
+It is possible to import the commands and use these for Node-based TypeScript applications:
+````
+import { runServer, startServer, restartServer, stopServer } from '../lib';
+
+...
+startServer();
+...
+
+````
