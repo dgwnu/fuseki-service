@@ -28,10 +28,9 @@ export function runServer(args?: string) {
  * Start Jena Fuseki Server witk PM2
  * @args  Server Arguments. Defaults = --localhost --mem /dgwnu
  */
-export function startServer(args?: string) {
-    const startScript = serverScriptPath();
-    const startArgs = ['--localhost'];
-    console.log(`script: ${startScript} args: ${startArgs}`);
+export function startServer(args?: string[]) {
+    const startArgs = serverArgs(args);
+    console.log(`startArgs: ${startArgs}`);
 
     connect((err) => {
         if (err) {
@@ -42,7 +41,7 @@ export function startServer(args?: string) {
         start({
                 name: 'fuseki-server',
                 script: 'java',
-                args: ['-jar', 'fuseki-server.jar' , '--localhost'],
+                args: ['-jar', 'fuseki-server.jar'].concat(),
                 cwd: resolve(__dirname, '..', '..', serverFolder)
         }, (err) => {
             disconnect();
