@@ -9,7 +9,8 @@
     "build:lib": "rollup -c",
     "cli": "$npm_package_cli",
     "cli:run": "$npm_package_cli run",
-    "cli:start": "$npm_package_cli start"
+    "cli:start": "$npm_package_cli start",
+    "cli:restart": "$npm_package_cli restart"
   },
   "repository": {
     "type": "git",

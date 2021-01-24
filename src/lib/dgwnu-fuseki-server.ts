@@ -11,8 +11,9 @@ import { resolve, join } from 'path';
 /**
  * NPM Package Imports
  */
-import { start, connect, disconnect } from 'pm2';
+import { start, connect, disconnect, restart, stop } from 'pm2';
 
+const serverName = 'fuseki-server';
 const serverFolder = 'fuseki-server'; 
 const serverScript = 'fuseki-server'; 
 
@@ -40,7 +41,7 @@ export function startServer(args?: string[]) {
         }
 
         start({
-            name: 'fuseki-server',
+            name: serverName,
             script: 'java',
             args: startArgs,
             cwd: resolve(__dirname, '..', '..', serverFolder)
@@ -52,6 +53,35 @@ export function startServer(args?: string[]) {
         });
 
     });
+
+}
+
+/**
+ * Restart Jena Fuseki Server with PM2
+ */
+export function restartServer() {
+    connect((err) => {
+        if (err) {
+          console.error(err);
+          process.exit(2);
+        }
+
+        restart(serverName, (err, proc) => {
+            disconnect();
+            if (err) {
+                console.log(err.name, err.message);
+            } else {
+                console.log(proc.status);
+            }
+        });
+
+    });
+}
+
+/**
+ * Stop Jena Fuseki Server with PM2
+ */
+export function stopServer() {
 
 }
 
