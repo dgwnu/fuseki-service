@@ -66,12 +66,10 @@ export function restartServer() {
           process.exit(2);
         }
 
-        restart(serverName, (err, proc) => {
+        restart(serverName, (err) => {
             disconnect();
             if (err) {
                 console.log(err.name, err.message);
-            } else {
-                console.log(proc.status);
             }
         });
 
