@@ -40,10 +40,10 @@ export function startServer(args?: string[]) {
         }
 
         start({
-                name: 'fuseki-server',
-                script: 'java',
-                args: ['-jar', serverScript + '.jar'].concat(startArgs),
-                cwd: resolve(__dirname, '..', '..', serverFolder)
+            name: 'fuseki-server',
+            script: 'java',
+            args: ['-jar', serverScript + '.jar'].concat(startArgs),
+            cwd: resolve(__dirname, '..', '..', serverFolder)
         }, (err) => {
             disconnect();
             if (err) {
