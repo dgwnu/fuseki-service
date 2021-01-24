@@ -30,11 +30,23 @@ console.log(`DGWNU - Fuseki Service - ${command} ${parms}`);
 let output = '';
 switch (command) {
     case 'run': {
-        output = lib_1.runServer();
+        lib_1.runServer();
+        break;
+    }
+    case 'start': {
+        lib_1.startServer();
+        break;
+    }
+    case 'restart': {
+        lib_1.restartServer();
+        break;
+    }
+    case 'stop': {
+        lib_1.stopServer();
         break;
     }
     default: {
-        output = lib_1.runServer();
+        lib_1.runServer();
         break;
     }
 }
