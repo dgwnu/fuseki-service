@@ -20,8 +20,8 @@ const serverScript = 'fuseki-server';
  * Run Jena Fuseki Server until terminal session is closed
  * @args Server Arguments. Defaults = --localhost --mem /dgwnu
  */
-export function runServer(args?: string) {
-    execSync(join(serverPath(), serverScript) + ' ' + serverArgs());
+export function runServer(args?: string[]) {
+    execSync(join(serverPath(), serverScript) + ' ' + serverArgs(args));
 }
 
 /**
