@@ -12,7 +12,7 @@ import { argv } from 'process';
 /**
  * CLI Library Modules
  */
-import { runServer, startServer, restartServer } from '../lib'
+import { runServer, startServer, restartServer, stopServer } from '../lib'
 
 //
 // START CLI Script
@@ -48,6 +48,11 @@ switch (command) {
 
     case 'restart': {
         restartServer();
+        break;
+    }
+
+    case 'stop': {
+        stopServer();
         break;
     }
 
