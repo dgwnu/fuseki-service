@@ -30,7 +30,7 @@ export function runServer(args?: string[]) {
  * @args  Custom Server Arguments. Default = --localhost --mem /dgwnu
  */
 export function startServer(args?: string[]) {
-    const startArgs = serverArgs(args);
+    const startArgs = ['-jar', serverScript + '.jar'].concat(serverArgs(args));
     console.log(`startArgs: ${startArgs}`);
 
     connect((err) => {
@@ -42,7 +42,7 @@ export function startServer(args?: string[]) {
         start({
             name: 'fuseki-server',
             script: 'java',
-            args: ['-jar', serverScript + '.jar'].concat(startArgs),
+            args: startArgs,
             cwd: resolve(__dirname, '..', '..', serverFolder)
         }, (err) => {
             disconnect();
@@ -62,7 +62,7 @@ export function startServer(args?: string[]) {
 function serverArgs(args?: string[]) {
 
     if (!args) {
-        args = ['--localhost', '--mem /dgwnu'];
+        args = ['--localhost', '--mem', '/dgwnu'];
     }
 
     return args;
