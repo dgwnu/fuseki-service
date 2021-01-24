@@ -11,7 +11,7 @@ import { resolve } from 'path';
 /**
  * NPM Package Imports
  */
-import * as pm2 from 'pm2';
+import { start, connect, disconnect } from 'pm2';
 
 const serverFolder = 'fuseki-server'; 
 const serverScript = 'fuseki-server'; 
@@ -29,20 +29,25 @@ export function runServer(args?: string) {
  * @args  Server Arguments. Defaults = --localhost --mem /dgwnu
  */
 export function startServer(args?: string) {
-    pm2.connect(err => {
+
+    connect((err) => {
         if (err) {
           console.error(err);
           process.exit(2);
-        } else {
-            pm2.start({
-                name: 'dgwnu-fuseki-server',
-                script: serverScriptPath(),
-                args: serverArgs()
-            }, (err, apps) => {
-                pm2.disconnect();
-            });
         }
+
+        start({
+                script: serverScriptPath(),
+                args: '--localhost'
+        }, (err) => {
+            disconnect();
+            if (err) {
+                console.log(err.name, err.message);
+            } 
+        });
+
     });
+
 }
 
 function serverArgs(args?: string) {
