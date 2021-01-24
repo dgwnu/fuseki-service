@@ -1,7 +1,7 @@
-# fuseki-service
+# Fuseki Service
 Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes.  
   
-Using the NPM processmonitor [PM2](https://github.com/Unitech/pm2) it is possible to start the Fuseki Service permanent as a background service.
+Based on Jena Fuseki executbale download release (v3.17.0). The [PM2-package](https://github.com/Unitech/pm2) is used to create a permanent background service.
 
 ## Install
 
@@ -9,17 +9,25 @@ Using the NPM processmonitor [PM2](https://github.com/Unitech/pm2) it is possibl
 npm install https://github.com/dgwnu/fuseki-service.git --save
 ````
 
-## Fuseki Service Commands
+## Commands
 
-You can use the serice like this:
+You can use the service from the command line like this:
 
 ````
-npx fuseki-service-cli run | start | restart | stop
+npx fuseki-service-cli run
+````
+or in a NPM-script:
+````
+"scripts": {
+    ...
+    "start": "fuseki-service-cli run",
+    ...
 ````
 
 | Command | Function |
 |---------|:------------|
 | run | Run Fuseki Service in open terminal session (stops after closing terminal session) |
-| server | Fuseki Server Configuration |
+| start | Start Fuseki Service using PM2 |
+| stop | Stop
   
 In this pre-release the Jena Fuseki Server server will execute with default cli settings: _localhost with ping, stats and metrics on, and a memory dataset named "dgwnu"_. In next releases will suppor all basic settings that is available from basic Open Source versions.
