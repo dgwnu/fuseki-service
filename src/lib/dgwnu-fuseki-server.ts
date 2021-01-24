@@ -11,6 +11,7 @@ import { resolve } from 'path';
 /**
  * NPM Package Imports
  */
+import * as pm2 from 'pm2';
 
 const serverFolder = 'fuseki-server'; 
 const serverScript = 'fuseki-server'; 
@@ -19,16 +20,30 @@ const serverScript = 'fuseki-server';
  * Run Jena Fuseki Server until terminal session is closed
  * @param serverDefaults Server Parameters replacement for Defaults (--localhost --mem /dgwnu)
  */
-export function runServer(serverDefaults?: string) {
-    return execSync(serverExec(serverDefaults)).toString()
+export function runServer(args?: string) {
+    return execSync(serverScriptPath() + ' ' + serverArgs()).toString()
 }
 
-function serverExec(serverDefaults?: string) {
-    const runServerCommand = resolve(__dirname, '..', '..', serverFolder, serverScript);
+/**
+ * Run Jena Fuseki Server until terminal session is closed
+ * @param serverDefaults Server Parameters replacement for Defaults (--localhost --mem /dgwnu)
+ */
+export function startServer(serverDefaults?: string) {
+    const execProcess = serverExec(serverDefaults);
 
-    if (!serverDefaults) {
-        serverDefaults = '--localhost --mem /dgwnu';
+}
+
+function serverArgs(args?: string) {
+
+    if (!args) {
+        args = '--localhost --mem /dgwnu';
     }
 
-    return `${runServerCommand} ${serverDefaults}`;
+    return args;
 }
+
+function serverScriptPath() {
+    return resolve(__dirname, '..', '..', serverFolder, serverScript)
+}
+
+
