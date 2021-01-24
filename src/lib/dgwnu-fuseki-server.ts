@@ -18,19 +18,31 @@ const serverScript = 'fuseki-server';
 
 /**
  * Run Jena Fuseki Server until terminal session is closed
- * @param serverDefaults Server Parameters replacement for Defaults (--localhost --mem /dgwnu)
+ * @args Server Arguments. Defaults = --localhost --mem /dgwnu
  */
 export function runServer(args?: string) {
     return execSync(serverScriptPath() + ' ' + serverArgs()).toString()
 }
 
 /**
- * Run Jena Fuseki Server until terminal session is closed
- * @param serverDefaults Server Parameters replacement for Defaults (--localhost --mem /dgwnu)
+ * Start Jena Fuseki Server witk PM2
+ * @args  Server Arguments. Defaults = --localhost --mem /dgwnu
  */
-export function startServer(serverDefaults?: string) {
-    const execProcess = serverExec(serverDefaults);
-
+export function startServer(args?: string) {
+    pm2.connect(err => {
+        if (err) {
+          console.error(err);
+          process.exit(2);
+        } else {
+            pm2.start({
+                name: 'dgwnu-fuseki-server',
+                script: serverScriptPath(),
+                args: serverArgs()
+            }, (err, apps) => {
+                pm2.disconnect();
+            });
+        }
+    });
 }
 
 function serverArgs(args?: string) {
