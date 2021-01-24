@@ -80,7 +80,20 @@ export function restartServer() {
  * Stop Jena Fuseki Server with PM2
  */
 export function stopServer() {
+    connect((err) => {
+        if (err) {
+          console.error(err);
+          process.exit(2);
+        }
 
+        stop(serverName, (err) => {
+            disconnect();
+            if (err) {
+                console.log(err.name, err.message);
+            }
+        });
+
+    });
 }
 
 /**
