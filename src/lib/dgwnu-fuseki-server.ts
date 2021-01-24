@@ -21,7 +21,7 @@ const serverScript = 'fuseki-server';
  * @args Server Arguments. Defaults = --localhost --mem /dgwnu
  */
 export function runServer(args?: string) {
-    return execSync(serverScriptPath() + ' ' + serverArgs()).toString()
+    execSync(serverScriptPath() + ' ' + serverArgs());
 }
 
 /**

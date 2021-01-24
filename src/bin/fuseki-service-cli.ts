@@ -37,17 +37,17 @@ let output = '';
 switch (command) {
 
     case 'run': {
-        output = runServer();
+        runServer();
         break;
     }
 
     case 'start': {
-        output = startServer();
+        startServer();
         break;
     }
 
     default: {
-        output = runServer();
+        runServer();
         break;
     }
 }
