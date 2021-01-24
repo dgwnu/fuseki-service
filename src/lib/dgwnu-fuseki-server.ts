@@ -22,7 +22,7 @@ const serverScript = 'fuseki-server';
  */
 export function runServer(args?: string[]) {
     const output = execSync(join(serverPath(), serverScript) + ' ' + serverArgs(args).join(' '));
-    console.log(output);
+    console.log(output.toString());
 }
 
 /**
