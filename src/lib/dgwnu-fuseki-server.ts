@@ -6,7 +6,7 @@
  * Node System Imports
  */
 import { execSync } from 'child_process';
-import { resolve } from 'path';
+import { resolve, join } from 'path';
 
 /**
  * NPM Package Imports
@@ -21,7 +21,7 @@ const serverScript = 'fuseki-server';
  * @args Server Arguments. Defaults = --localhost --mem /dgwnu
  */
 export function runServer(args?: string) {
-    execSync(serverScriptPath() + ' ' + serverArgs());
+    execSync(join(serverPath(), serverScript) + ' ' + serverArgs());
 }
 
 /**
@@ -55,17 +55,24 @@ export function startServer(args?: string) {
 
 }
 
-function serverArgs(args?: string) {
+/**
+ * Server start custom args or default args when not supplied
+ * @param args Server start custom args
+ */
+function serverArgs(args?: string[]) {
 
     if (!args) {
-        args = '--localhost --mem /dgwnu';
+        args = ['--localhost', '--mem /dgwnu'];
     }
 
     return args;
 }
 
-function serverScriptPath() {
-    return resolve(__dirname, '..', '..', serverFolder, serverScript)
+/**
+ * Direct path to server install directory
+ */
+function serverPath() {
+    return resolve(__dirname, '..', '..', serverFolder);
 }
 
 
