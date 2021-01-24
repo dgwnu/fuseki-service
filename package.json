@@ -27,9 +27,7 @@
   },
   "homepage": "https://github.com/dgwnu/fuseki-service#readme",
   "dependencies": {
-    "download-cli": "^1.1.1"
-  },
-  "peerDependencies": {
+    "download-cli": "^1.1.1",
     "pm2": "^4.5.1"
   }
 }
