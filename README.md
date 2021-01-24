@@ -26,9 +26,11 @@ or in a NPM-script:
 
 | Command | Function |
 |---------|:------------|
-| run | Run Fuseki Service in open terminal session (stops after closing terminal session) |
-| start | Start Fuseki Service using PM2 |
-| stop | Stop
+| run | Run Fuseki Service in a terminal session (stops after closing terminal session) |
+| start | Start Fuseki as PM2 Service (permanent in the background) |
+| stop | Stop Fuseki as PM2 Service |
+| restart | Restart Fuseki as PM2 Service |
+
   
 In this pre-release the Jena Fuseki Server server will execute with default cli settings: _localhost with ping, stats and metrics on, and a memory dataset named "dgwnu"_.  
 Next releases will suppor all basic settings that is available from basic Open Source versions.
