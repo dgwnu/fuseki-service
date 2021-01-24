@@ -10,7 +10,8 @@
     "cli": "$npm_package_cli",
     "cli:run": "$npm_package_cli run",
     "cli:start": "$npm_package_cli start",
-    "cli:restart": "$npm_package_cli restart"
+    "cli:restart": "$npm_package_cli restart",
+    "cli:stop": "$npm_package_cli stop"
   },
   "repository": {
     "type": "git",
