@@ -12,6 +12,7 @@ import { resolve, join } from 'path';
  * NPM Package Imports
  */
 import { start, connect, disconnect, restart, stop } from 'pm2';
+import { Observable } from 'rxjs';
 
 const serverName = 'fuseki-server';
 const serverFolder = 'fuseki-server'; 
@@ -20,10 +21,10 @@ const serverScript = 'fuseki-server';
 /**
  * Run Jena Fuseki Server until terminal session is closed
  * @args Server Arguments. Defaults = --localhost --mem /dgwnu
+ * @returns run feedback output
  */
 export function runServer(args?: string[]) {
-    const output = execSync(join(serverPath(), serverScript) + ' ' + serverArgs(args).join(' '));
-    console.log(output.toString());
+    return execSync(join(serverPath(), serverScript) + ' ' + serverArgs(args).join(' ')).toString('utf-8');
 }
 
 /**
@@ -31,8 +32,8 @@ export function runServer(args?: string[]) {
  * @args  Custom Server Arguments. Default = --localhost --mem /dgwnu
  */
 export function startServer(args?: string[]) {
-    const startArgs = ['-jar', serverScript + '.jar'].concat(serverArgs(args));
-    console.log(`startArgs: ${startArgs}`);
+    const startArgs = serverArgs(args);
+    console.log(`startArgs: ${startArgs.join(' ')}`);
 
     connect((err) => {
         if (err) {
@@ -43,7 +44,7 @@ export function startServer(args?: string[]) {
         start({
             name: serverName,
             script: 'java',
-            args: startArgs,
+            args: ['-jar', serverScript + '.jar'].concat(startArgs),
             cwd: resolve(__dirname, '..', '..', serverFolder)
         }, (err) => {
             disconnect();
