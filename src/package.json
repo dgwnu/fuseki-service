@@ -10,8 +10,9 @@
     "pm2:list": "pm2 l",
     "cli": "$npm_package_cli",
     "cli:run": "$npm_package_cli run",
-    "cli:run:args": "$npm_package_cli run --localhost --mem /argsds",
+    "cli:run:args": "$npm_package_cli run --localhost --mem /run-args-ds",
     "cli:start": "$npm_package_cli start && pm2 l",
+    "cli:start:args": "$npm_package_cli start --localhost --mem /start-args-ds",
     "cli:restart": "$npm_package_cli restart && pm2 l",
     "cli:stop": "$npm_package_cli stop && pm2 l"
   },
