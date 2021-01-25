@@ -54,10 +54,9 @@ export function startServer(args?: string[]) {
 
                 if (err) {
                     observer.error(err);
-                } else {
-                    observer.next();
                 }
 
+                observer.next();
                 observer.complete();
             });
 
