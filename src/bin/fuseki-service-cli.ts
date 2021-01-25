@@ -42,7 +42,10 @@ switch (command) {
     }
 
     case 'start': {
-        startServer();
+        startServer().subscribe({
+            next: () => console.log('Server Started!'),
+            error: (err) => console.error(err)
+        });
         break;
     }
 
