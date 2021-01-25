@@ -6,7 +6,7 @@ Build all Script:  ````npm run build````
 
 ## Jena Fuseki Server Executable
 
-Basic Open Source Jena Fuseki Java Archive (dowloaded and extracted post-install) is used to create the server.  
+Basic Open Source Jena Fuseki Java Archive (dowloaded and extracted post-install) is used to create the server.
   
 PM2 Package provides the server demaon functionality in the CLI.
 

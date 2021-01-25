@@ -7,11 +7,12 @@
     "build": "npm run build:lib && npm run build:cli",
     "build:cli": "tsc -p ts-cli-config.json",
     "build:lib": "rollup -c",
+    "pm2:list": "pm2 l",
     "cli": "$npm_package_cli",
     "cli:run": "$npm_package_cli run",
-    "cli:start": "$npm_package_cli start",
-    "cli:restart": "$npm_package_cli restart",
-    "cli:stop": "$npm_package_cli stop"
+    "cli:start": "$npm_package_cli start && pm2 l",
+    "cli:restart": "$npm_package_cli restart && pm2 l",
+    "cli:stop": "$npm_package_cli stop && pm2 l"
   },
   "repository": {
     "type": "git",

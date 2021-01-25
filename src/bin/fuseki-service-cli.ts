@@ -30,7 +30,7 @@ if (argv[4]) {
 }
 */
 
-console.log(`DGWNU - Fuseki Service - ${command} ${parms}`);
+console.log(`DGWNU - Fuseki Service - ${command} ${parms.join(' ')}`);
 
 let output = '';
 
