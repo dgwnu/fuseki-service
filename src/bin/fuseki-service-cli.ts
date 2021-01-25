@@ -21,7 +21,7 @@ const command = argv[2];
 let serverArgs: string[];
 
 if (argv.length > 3) {
-    serverArgs = argv.slice(4, argv.length - 1);
+    serverArgs = argv.slice(3, argv.length);
 }
 
 console.log(`DGWNU - Fuseki Service - ${command} ${serverArgs ? serverArgs.join(' ') : ''}`);
