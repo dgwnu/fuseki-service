@@ -4,10 +4,13 @@ Information about the setup of this package.
   
 Build all Script:  ````npm run build````
 
-## Fuseki CLI
+## Jena Fuseki Server Executable
 
-Mac Fuseki Server installation and configuration is based on HomeBrew.  
-[See install Fuseki on a Mac with Brew](https://brewinstall.org/install-fuseki-on-mac-with-brew/).
+Basic Open Source Jena Fuseki Java Archive (dowloaded and extracted post-install) is used to create the server.  
+  
+PM2 Package provides the server demaon functionality in the CLI.
+
+## Fuseki Service CLI
 
 CLI Build Script:  ````npm run build:cli````
   
