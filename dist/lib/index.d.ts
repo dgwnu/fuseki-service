@@ -1,1 +1,1 @@
-export * from './dgwnu-fuseki-server';
+export * from './fuseki-server';

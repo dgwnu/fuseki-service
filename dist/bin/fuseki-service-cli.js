@@ -16,38 +16,40 @@ const lib_1 = require("../lib");
 // START CLI Script
 //
 const command = process_1.argv[2];
-let parms = [];
-/*
-if (argv[3]) {
-    parms.push(argv[3]);
+let serverArgs;
+if (process_1.argv.length > 3) {
+    serverArgs = process_1.argv.slice(3, process_1.argv.length);
 }
-
-if (argv[4]) {
-    parms.push(argv[4]);
-}
-*/
-console.log(`DGWNU - Fuseki Service - ${command} ${parms}`);
-let output = '';
+console.log(`DGWNU - Fuseki Service - ${command} ${serverArgs ? serverArgs.join(' ') : ''}`);
 switch (command) {
     case 'run': {
-        lib_1.runServer();
+        const output = lib_1.runServer(serverArgs);
+        console.log(output);
         break;
     }
     case 'start': {
-        lib_1.startServer();
+        lib_1.startServer(serverArgs).subscribe({
+            next: () => console.log('Server Started!'),
+            error: (err) => console.error(err)
+        });
         break;
     }
     case 'restart': {
-        lib_1.restartServer();
+        lib_1.restartServer().subscribe({
+            next: () => console.log('Server Restarted!'),
+            error: (err) => console.error(err)
+        });
         break;
     }
     case 'stop': {
-        lib_1.stopServer();
+        lib_1.stopServer().subscribe({
+            next: () => console.log('Server Stopped!'),
+            error: (err) => console.error(err)
+        });
         break;
     }
     default: {
-        lib_1.runServer();
+        console.error(`Unknown Command: ${command}`);
         break;
     }
 }
-console.log(output);

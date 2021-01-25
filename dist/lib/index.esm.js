@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import { join, resolve } from 'path';
 import { connect, start, disconnect, restart, stop } from 'pm2';
+import { Observable } from 'rxjs';
 
 /**
  * Generic DGWNU Paackte TypeScript Tripple Store Utilities
@@ -11,33 +12,39 @@ var serverScript = 'fuseki-server';
 /**
  * Run Jena Fuseki Server until terminal session is closed
  * @args Server Arguments. Defaults = --localhost --mem /dgwnu
+ * @returns run feedback output
  */
 function runServer(args) {
-    var output = execSync(join(serverPath(), serverScript) + ' ' + serverArgs(args).join(' '));
-    console.log(output.toString());
+    var runArgs = serverArgs(args).join(' ');
+    console.log("startArgs: " + runArgs);
+    return execSync(join(serverPath(), serverScript) + ' ' + runArgs).toString('utf-8');
 }
 /**
  * Start Jena Fuseki Server witk PM2
  * @args  Custom Server Arguments. Default = --localhost --mem /dgwnu
  */
 function startServer(args) {
-    var startArgs = ['-jar', serverScript + '.jar'].concat(serverArgs(args));
-    console.log("startArgs: " + startArgs);
-    connect(function (err) {
-        if (err) {
-            console.error(err);
-            process.exit(2);
-        }
-        start({
-            name: serverName,
-            script: 'java',
-            args: startArgs,
-            cwd: resolve(__dirname, '..', '..', serverFolder)
-        }, function (err) {
-            disconnect();
+    var startArgs = serverArgs(args);
+    console.log("startArgs: " + startArgs.join(' '));
+    return new Observable(function (observer) {
+        connect(function (err) {
             if (err) {
-                console.log(err.name, err.message);
+                observer.error(err);
+                process.exit(2);
             }
+            start({
+                name: serverName,
+                script: 'java',
+                args: ['-jar', serverScript + '.jar'].concat(startArgs),
+                cwd: resolve(__dirname, '..', '..', serverFolder)
+            }, function (err) {
+                disconnect();
+                if (err) {
+                    observer.error(err);
+                }
+                observer.next();
+                observer.complete();
+            });
         });
     });
 }
@@ -45,16 +52,20 @@ function startServer(args) {
  * Restart Jena Fuseki Server with PM2
  */
 function restartServer() {
-    connect(function (err) {
-        if (err) {
-            console.error(err);
-            process.exit(2);
-        }
-        restart(serverName, function (err) {
-            disconnect();
+    return new Observable(function (observer) {
+        connect(function (err) {
             if (err) {
-                console.log(err.name, err.message);
+                observer.error(err);
+                process.exit(2);
             }
+            restart(serverName, function (err) {
+                disconnect();
+                if (err) {
+                    observer.error(err);
+                }
+                observer.next();
+                observer.complete();
+            });
         });
     });
 }
@@ -62,16 +73,20 @@ function restartServer() {
  * Stop Jena Fuseki Server with PM2
  */
 function stopServer() {
-    connect(function (err) {
-        if (err) {
-            console.error(err);
-            process.exit(2);
-        }
-        stop(serverName, function (err) {
-            disconnect();
+    return new Observable(function (observer) {
+        connect(function (err) {
             if (err) {
-                console.log(err.name, err.message);
+                observer.error(err);
+                process.exit(2);
             }
+            stop(serverName, function (err) {
+                disconnect();
+                if (err) {
+                    observer.error(err);
+                }
+                observer.next();
+                observer.complete();
+            });
         });
     });
 }
