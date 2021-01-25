@@ -35,22 +35,32 @@ export function startServer(args?: string[]) {
     const startArgs = serverArgs(args);
     console.log(`startArgs: ${startArgs.join(' ')}`);
 
-    connect((err) => {
-        if (err) {
-          console.error(err);
-          process.exit(2);
-        }
+    return new Observable<void>(observer => {
 
-        start({
-            name: serverName,
-            script: 'java',
-            args: ['-jar', serverScript + '.jar'].concat(startArgs),
-            cwd: resolve(__dirname, '..', '..', serverFolder)
-        }, (err) => {
-            disconnect();
+        connect((err) => {
+
             if (err) {
-                console.log(err.name, err.message);
-            } 
+                observer.error(err);
+                process.exit(2);
+            }
+
+            start({
+                name: serverName,
+                script: 'java',
+                args: ['-jar', serverScript + '.jar'].concat(startArgs),
+                cwd: resolve(__dirname, '..', '..', serverFolder)
+            }, (err) => {
+                disconnect();
+
+                if (err) {
+                    observer.error(err);
+                } else {
+                    observer.next();
+                }
+
+                observer.complete();
+            });
+
         });
 
     });
