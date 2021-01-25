@@ -72,40 +72,62 @@ export function startServer(args?: string[]) {
  * Restart Jena Fuseki Server with PM2
  */
 export function restartServer() {
-    connect((err) => {
-        if (err) {
-          console.error(err);
-          process.exit(2);
-        }
 
-        restart(serverName, (err) => {
-            disconnect();
+    return new Observable<void>(observer => {
+
+        connect((err) => {
+
             if (err) {
-                console.log(err.name, err.message);
+                observer.error(err);
+                process.exit(2);
             }
+
+            restart(serverName, (err) => {
+                disconnect();
+
+                if (err) {
+                    observer.error(err);
+                }
+
+                observer.next();
+                observer.complete();
+            });
+
         });
 
     });
+
 }
 
 /**
  * Stop Jena Fuseki Server with PM2
  */
 export function stopServer() {
-    connect((err) => {
-        if (err) {
-          console.error(err);
-          process.exit(2);
-        }
+    
+    return new Observable<void>(observer => {
 
-        stop(serverName, (err) => {
-            disconnect();
+        connect((err) => {
+
             if (err) {
-                console.log(err.name, err.message);
+                observer.error(err);
+                process.exit(2);
             }
+
+            stop(serverName, (err) => {
+                disconnect();
+
+                if (err) {
+                    observer.error(err);
+                }
+
+                observer.next();
+                observer.complete();
+            });
+
         });
 
     });
+
 }
 
 /**

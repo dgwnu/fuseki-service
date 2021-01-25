@@ -37,7 +37,8 @@ let output = '';
 switch (command) {
 
     case 'run': {
-        runServer();
+        const output = runServer();
+        console.log(output);
         break;
     }
 
