@@ -40,7 +40,7 @@ switch (command) {
 
     case 'restart': {
         restartServer().subscribe({
-            next: () => console.log('Server Started!'),
+            next: () => console.log('Server Restarted!'),
             error: (err) => console.error(err)
         });
         break;
@@ -48,7 +48,7 @@ switch (command) {
 
     case 'stop': {
         stopServer().subscribe({
-            next: () => console.log('Server Started!'),
+            next: () => console.log('Server Stopped!'),
             error: (err) => console.error(err)
         });
         break;
