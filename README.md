@@ -26,14 +26,20 @@ or in a NPM-script:
 
 | Command | Function |
 |---------|:------------|
-| run | Run Fuseki Service in a terminal session (stops after closing terminal session) |
-| start | Start Fuseki as PM2 Service (permanent in the background) |
+| run (_args_) | Run Fuseki Service in a terminal session (stops after closing terminal session) |
+| start (_args_) | Start Fuseki as PM2 Service (permanent in the background) |
 | stop | Stop Fuseki as PM2 Service |
 | restart | Restart Fuseki as PM2 Service |
 
-  
-In this pre-release the Jena Fuseki Server server will execute with default cli settings: _localhost with ping, stats and metrics on, and a memory dataset named "dgwnu"_.  
-Next releases will support all basic settings that are available from basic Open Source versions.
+The Jena Fuseki Server server will execute with default _arg(ument)s_ for the __run__ and __start__ commands:
+
+- -- localhost 
+- --mem /dgwnu
+
+You can replace the default _args_ with all possible args that are available. See options by running the following at the command line:
+````
+npx fuseki-service-cli run --help
+````
 
 ## TypeScript Library Support
 
