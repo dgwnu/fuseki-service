@@ -24,7 +24,9 @@ const serverScript = 'fuseki-server';
  * @returns run feedback output
  */
 export function runServer(args?: string[]) {
-    return execSync(join(serverPath(), serverScript) + ' ' + serverArgs(args).join(' ')).toString('utf-8');
+    const runArgs = serverArgs(args).join(' ');
+    console.log(`startArgs: ${runArgs}`);
+    return execSync(join(serverPath(), serverScript) + ' ' + runArgs).toString('utf-8');
 }
 
 /**
