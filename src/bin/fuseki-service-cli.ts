@@ -18,32 +18,20 @@ import { runServer, startServer, restartServer, stopServer } from '../lib'
 // START CLI Script
 //
 const command = argv[2];
-let parms: string[] = [];
+let serverArgs: string[];
 
-/*
-if (argv[3]) {
-    parms.push(argv[3]);
-}
-
-if (argv[4]) {
-    parms.push(argv[4]);
-}
-*/
-
-console.log(`DGWNU - Fuseki Service - ${command} ${parms.join(' ')}`);
-
-let output = '';
+console.log(`DGWNU - Fuseki Service - ${command} ${serverArgs ? serverArgs.join(' ') : ''}`);
 
 switch (command) {
 
     case 'run': {
-        const output = runServer();
+        const output = runServer(serverArgs);
         console.log(output);
         break;
     }
 
     case 'start': {
-        startServer().subscribe({
+        startServer(serverArgs).subscribe({
             next: () => console.log('Server Started!'),
             error: (err) => console.error(err)
         });
@@ -51,23 +39,27 @@ switch (command) {
     }
 
     case 'restart': {
-        restartServer();
+        restartServer().subscribe({
+            next: () => console.log('Server Started!'),
+            error: (err) => console.error(err)
+        });
         break;
     }
 
     case 'stop': {
-        stopServer();
+        stopServer().subscribe({
+            next: () => console.log('Server Started!'),
+            error: (err) => console.error(err)
+        });
         break;
     }
 
     default: {
-        runServer();
+        console.error(`Unknown Command: ${command}`);
         break;
     }
 }
 
-console.log(output);
 //
 // END CLI Script
 //
-
