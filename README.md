@@ -23,7 +23,7 @@ is used to start Fuseki as a permanent background service.
 
 ## Install
 
-````
+````tsc
 npm install https://github.com/dgwnu/fuseki-service.git --save
 ````
 
@@ -35,7 +35,7 @@ You can use the service from the command line like this:
 npx fuseki-service-cli run
 ````
 or in a NPM-script:
-````npm
+````
 "scripts": {
     ...
     "cli:run": "fuseki-service-cli run",
