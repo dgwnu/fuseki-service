@@ -1,10 +1,17 @@
 # Fuseki Service [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes.  
-    
-[![Jena Logo](https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png)](https://jena.apache.org/download/index.cgi) Using the basic Jena Fuseki v3.17.0 Executable Download
+
+[![Logo](https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png)](https://jena.apache.org/download/index.cgi) Using the basic Jena Fuseki v3.17.0 Executable Download
   
   
-The [PM2-package](https://github.com/Unitech/pm2) is used to create a permanent background service.
+<a href="https://github.com/Unitech/pm2">
+    <img 
+        src="https://raw.githubusercontent.com/Unitech/pm2/development/pres/pm2-v4.png" 
+        width="20%"
+    />
+</a>
+The PM2-package is used to create a permanent background service.
 
 ## Install
 
