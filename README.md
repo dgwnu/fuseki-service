@@ -9,7 +9,8 @@ Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes.
         width="8%"
     />
 </a>
-Fuseki v3.17.0 Executable Download is used to run the service.
+Fuseki v3.17.0 Executable Download is used to run the service.  
+  
   
 <a href="https://github.com/Unitech/pm2">
     <img 
