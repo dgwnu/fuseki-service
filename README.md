@@ -35,7 +35,7 @@ You can use the service from the command line like this:
 npx fuseki-service-cli run
 ````
 or in a NPM-script:
-````
+````npm
 "scripts": {
     ...
     "cli:run": "fuseki-service-cli run",
