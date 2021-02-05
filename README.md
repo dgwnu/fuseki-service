@@ -2,8 +2,14 @@
 
 Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes.  
 
-[![Logo](https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png)](https://jena.apache.org/download/index.cgi) Using the basic Jena Fuseki v3.17.0 Executable Download
-  
+
+<a href="https://jena.apache.org/download/index.cgi">
+    <img 
+        src="https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png" 
+        width="8%"
+    />
+</a>
+Fuseki v3.17.0 Executable Download is used to run the service.
   
 <a href="https://github.com/Unitech/pm2">
     <img 
