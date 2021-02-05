@@ -62,8 +62,8 @@ npx fuseki-service-cli run --help
 ## TypeScript Library Support
 
 It is possible to import the commands and use these for Node-based TypeScript applications:
-````
-import { startServer } from '../lib';
+````ts
+import { startServer } from '@dgwnu/fuseki-service';
 
 ...
         startServer(serverArgs).subscribe({
