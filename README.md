@@ -8,10 +8,10 @@ Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes.
 <a href="https://github.com/Unitech/pm2">
     <img 
         src="https://raw.githubusercontent.com/Unitech/pm2/development/pres/pm2-v4.png" 
-        width="10%"
+        width="8%"
     />
 </a>
-is used to create a permanent background service.
+is used to start Fuseki as a permanent background service.
 
 ## Install
 
