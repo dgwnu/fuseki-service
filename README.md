@@ -8,10 +8,10 @@ Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes.
 <a href="https://github.com/Unitech/pm2">
     <img 
         src="https://raw.githubusercontent.com/Unitech/pm2/development/pres/pm2-v4.png" 
-        width="20%"
+        width="10%"
     />
 </a>
-The PM2-package is used to create a permanent background service.
+is used to create a permanent background service.
 
 ## Install
 
