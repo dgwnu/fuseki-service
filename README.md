@@ -1,4 +1,4 @@
-# Fuseki Service [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# Fuseki Service [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes.  
   
 Based on Jena Fuseki executbale download release (v3.17.0). The [PM2-package](https://github.com/Unitech/pm2) is used to create a permanent background service.
