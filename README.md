@@ -23,7 +23,7 @@ is used to start Fuseki as a permanent background service.
 
 ## Install
 
-````shell
+````
 npm install https://github.com/dgwnu/fuseki-service.git --save
 ````
 
