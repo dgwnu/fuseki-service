@@ -28,11 +28,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const process_1 = require("process");
 const Colors = __importStar(require("colors"));
-const colors = Colors;
 /**
  * CLI Library Modules
  */
 const lib = __importStar(require("../lib"));
+/**
+ * colors constant that is used for console.log()
+ * Based on <https://www.voidcanvas.com/make-console-log-output-colorful-and-stylish-in-browser-node/>
+ */
+const colors = Colors;
 //
 // START CLI Script
 //
@@ -41,7 +45,7 @@ let serverArgs;
 if (process_1.argv.length > 3) {
     serverArgs = process_1.argv.slice(3, process_1.argv.length);
 }
-console.log(`DGWNU - Fuseki Service - ${command} ${serverArgs ? serverArgs.join(' ') : ''}`);
+console.log(`DGWNU - Fuseki Service - ${command} ${serverArgs ? serverArgs.join(' ') : ''}`.bgRed.yellow.bold);
 switch (command) {
     case 'run': {
         const output = lib.runServer(serverArgs);
@@ -70,12 +74,12 @@ switch (command) {
         break;
     }
     default: {
-        console.log('\nNot a valid parameter command line argument. Please use:\n');
+        console.log('\nNot a valid parameter command line argument. Please use:\n'.bold);
         console.log('fuseki-service run          Run Fuseki Server in a Terminal Session (terminated after closing)'.red);
-        console.log('fuseki-service run --help   For all available Fuseki Server Options');
-        console.log('fuseki-service start        Start Fuseki Server as a permanent PM2 deamon');
-        console.log('fuseki-service stop         Stop Fuseki Server as a permanent PM2 deamon');
-        console.log('fuseki-service restart      Restart Fuseki Server as a permanent PM2 deamon');
+        console.log('fuseki-service run --help   For all available Fuseki Server Options'.green);
+        console.log('fuseki-service start        Start Fuseki Server as a permanent PM2 deamon'.blue);
+        console.log('fuseki-service stop         Stop Fuseki Server as a permanent PM2 deamon'.blue);
+        console.log('fuseki-service restart      Restart Fuseki Server as a permanent PM2 deamon'.blue);
         break;
     }
 }
