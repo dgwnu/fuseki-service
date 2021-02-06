@@ -29,6 +29,7 @@
   "dependencies": {
     "download-cli": "^1.1.1",
     "pm2": "^4.5.4",
-    "rxjs": "^6.6.3"
+    "rxjs": "^6.6.3",
+    "colors": "^1.4.0"
   }
 }
