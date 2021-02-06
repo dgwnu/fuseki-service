@@ -6,7 +6,7 @@ Jena Fuseki Service setup for learning SPARQL, Development and Testing purposes.
 <a href="https://jena.apache.org/download/index.cgi">
     <img 
         src="https://jena.apache.org/images/jena-logo/jena-logo-jumbotron.png" 
-        width="3%"
+        width="4%"
     />
 </a>
 The binary distribution of Fuseki v3.17.0 is used to provide the service.  
@@ -15,7 +15,7 @@ The binary distribution of Fuseki v3.17.0 is used to provide the service.
 <a href="https://github.com/Unitech/pm2">
     <img 
         src="https://raw.githubusercontent.com/Unitech/pm2/development/pres/pm2-v4.png" 
-        width="8%"
+        width="12%"
     />
 </a>
 is used to start Fuseki as a permanent background service.
@@ -32,13 +32,13 @@ npm install https://github.com/dgwnu/fuseki-service.git --save
 You can use the service from the command line like this:
 
 ````
-npx fuseki-service-cli run
+npx fuseki-service run
 ````
 or in a NPM-script:
 ````
 "scripts": {
     ...
-    "cli:run": "fuseki-service-cli run",
+    "cli:run": "fuseki-service run",
     ...
 ````
 
@@ -56,7 +56,7 @@ The Jena Fuseki Server server will execute with default _arg(ument)s_ for the __
 
 You can replace the default _args_ with all possible args that are available. See options by running the following at the command line:
 ````
-npx fuseki-service-cli run --help
+npx fuseki-service run --help
 ````
 
 ## TypeScript Library Support
