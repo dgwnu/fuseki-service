@@ -1,4 +1,4 @@
-# Setup
+# Fuseki Service Development
 
 Information about the setup of this package.  
   
