@@ -74,4 +74,4 @@ import { startServer } from '@dgwnu/fuseki-service';
 
 ````
 
-The [Fuseki Service CLI source](src/bin/fuseki-service-cli) provides all examples you need.
+The [Fuseki Service CLI source](src/bin/fuseki-service-cli.ts) provides all examples you need.
