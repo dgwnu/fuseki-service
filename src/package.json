@@ -2,19 +2,18 @@
   "name": "@dgwnu/fuseki-service-dev",
   "version": "0.8.0",
   "description": "Fuseki NPM CLI services development in TypeScript",
-  "cli": "ts-node -P ts-node-config.json bin/fuseki-service-cli.ts",
   "scripts": {
     "build": "npm run build:lib && npm run build:cli",
     "build:cli": "tsc -p ts-cli-config.json",
     "build:lib": "rollup -c",
     "pm2:list": "pm2 l",
-    "cli": "$npm_package_cli",
-    "cli:run": "$npm_package_cli run",
-    "cli:run:args": "$npm_package_cli run --localhost --mem /run-args-ds",
-    "cli:start": "$npm_package_cli start && pm2 l",
-    "cli:start:args": "$npm_package_cli start --localhost --mem /start-args-ds",
-    "cli:restart": "$npm_package_cli restart && pm2 l",
-    "cli:stop": "$npm_package_cli stop && pm2 l"
+    "cli": "ts-node -P ts-node-config.json bin/fuseki-service-cli.ts",
+    "cli:run": "ts-node -P ts-node-config.json bin/fuseki-service-cli.ts run",
+    "cli:run:args": "ts-node -P ts-node-config.json bin/fuseki-service-cli.ts run --localhost --mem /run-args-ds",
+    "cli:start": "ts-node -P ts-node-config.json bin/fuseki-service-cli.ts start && pm2 l",
+    "cli:start:args": "ts-node -P ts-node-config.json bin/fuseki-service-cli.ts start --localhost --mem /start-args-ds",
+    "cli:restart": "ts-node -P ts-node-config.json bin/fuseki-service-cli.ts restart && pm2 l",
+    "cli:stop": "ts-node -P ts-node-config.json bin/fuseki-service-cli.ts stop && pm2 l"
   },
   "repository": {
     "type": "git",
